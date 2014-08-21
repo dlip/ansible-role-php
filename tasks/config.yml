@@ -35,6 +35,14 @@
    - restart php-fpm
   tags: [configuration,php,fpm]
 
+- name: Set permission on php var dir
+  file: path=/var/lib/php owner={{php_fpm_pools[0].user}} group={{php_fpm_pools[0].group}} mode=0744
+  notify: 
+   - restart php-fpm
+
+- name: Create php sessions folder
+  file: path=/var/lib/php/session owner={{php_fpm_pools[0].user}} group={{php_fpm_pools[0].group}} mode=0744 state=directory
+
 - name: Check php-fpm syntax of configuration files
   shell: "{{ php_fpm_binary_name }} -t"
   register: result
