@@ -11,7 +11,7 @@
   tags: [packages,php,fpm]
 
 - name: Install the php packages (YUM)
-  yum: name={{ item }} state=present
+  yum: name={{ item }} state=present enablerepo=remi
   with_items: php_fpm_yum_packages
   environment: env
   when: ansible_os_family == "RedHat"
