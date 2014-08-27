@@ -1,7 +1,7 @@
-php-fpm
+php
 ========
 
-This role installs and configures the php-fpm interpreter.
+This role installs and configures the php with cli.
 
 Requirements
 ------------

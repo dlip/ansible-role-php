@@ -5,18 +5,14 @@
 
 - name: Install the php packages (APT)
   apt: name={{ item }} state=present update_cache=yes
-  with_items: php_fpm_apt_packages
+  with_items: php_apt_packages
   environment: env
   when: ansible_os_family == "Debian"
-  tags: [packages,php,fpm]
+  tags: [packages,php]
 
 - name: Install the php packages (YUM)
   yum: name={{ item }} state=present enablerepo=remi
-  with_items: php_fpm_yum_packages
+  with_items: php_yum_packages
   environment: env
   when: ansible_os_family == "RedHat"
-  tags: [packages,php,fpm]
-
-- name: Start the php5-fpm service
-  service: name={{ php_fpm_service_name }} state=started enabled=yes
-  tags: [service,php,fpm]
+  tags: [packages,php]
