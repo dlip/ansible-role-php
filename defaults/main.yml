@@ -6,6 +6,13 @@ php_apt_packages:
 php_yum_packages:
   - php
   - php-cli
+  - php-mcrypt
+  - php-pdo
+  - php-mysql 
+  - php-sqlite
+  - php-pgsql
+  - php-gd
+  - php-mbstring
 
 php_ini:
  - option: "engine"
