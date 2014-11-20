@@ -1,7 +1,7 @@
 ---
 
 - include: install.yml
-  when: skip_install is not defined or skip_install != "true"
+  tags: install
 
 - include: config.yml
-  when: skip_config is not defined or skip_config != "true"
+  tags: config
